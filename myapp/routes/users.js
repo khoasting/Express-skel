@@ -1,20 +1,13 @@
 var express = require('express');
-
-var app = express();
-
-app.set('view engine', 'jade');
-app.set('views', './views');
-
-app.get('/', function(req, res){
-  res.render("addcustomer");
-  
-});
-
-app.post('/', function(req, res){
-  console.log(req.body);
-  res.send("recieved your request!");
-});
+var router = express.Router();
 
 /* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.render('addcustomer');
 
-module.exports = app;
+});
+router.post('/', function(req, res, next) {
+  console.log(res.body());
+
+});
+module.exports = router;
